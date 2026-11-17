@@ -1,0 +1,8 @@
+qiskit==2.6.2
+qiskit-ibm-runtime>=0.45
+qiskit-aer>=0.18          # frontier/random_check.py (matrix-product-state simulator)
+mqt.qcec>=3.9
+qiskit-qasm3-import       # tracker circuits in OpenQASM 3
+numpy
+# optional: IBM's AI transpiler, for the comparison row (installs on Linux; see README)
+# qiskit-ibm-transpiler

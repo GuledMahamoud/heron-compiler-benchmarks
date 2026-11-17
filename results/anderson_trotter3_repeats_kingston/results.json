@@ -1,0 +1,77 @@
+[
+ {
+  "circuit": "anderson_momentum_trotter-3.qasm",
+  "qubits": 64,
+  "source_2q": 734,
+  "note": "",
+  "rows": [
+   {
+    "compiler": "qiskit",
+    "seed": 21,
+    "seconds": 67.2,
+    "two_qubit": 1849,
+    "depth_2q": 228,
+    "duration_ns": 24848.0,
+    "damage": 10.542370954342735,
+    "v3_cost": 6.358159544234751,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   },
+   {
+    "compiler": "ours s0",
+    "seconds": 115.0,
+    "two_qubit": 1866,
+    "depth_2q": 211,
+    "duration_ns": 23500.0,
+    "damage": 9.02585969418616,
+    "v3_cost": 6.288391606821984,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   },
+   {
+    "compiler": "ours s1",
+    "seconds": 114.8,
+    "two_qubit": 2012,
+    "depth_2q": 216,
+    "duration_ns": 23328.0,
+    "damage": 9.450071994803096,
+    "v3_cost": 6.3226884099963,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   },
+   {
+    "compiler": "ours s2",
+    "seconds": 115.7,
+    "two_qubit": 1891,
+    "depth_2q": 221,
+    "duration_ns": 24520.0,
+    "damage": 9.296636364760365,
+    "v3_cost": 6.321251239316282,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   },
+   {
+    "compiler": "ours s3",
+    "seconds": 115.8,
+    "two_qubit": 1871,
+    "depth_2q": 233,
+    "duration_ns": 25348.0,
+    "damage": 9.896745959882459,
+    "v3_cost": 6.355696086273403,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   },
+   {
+    "compiler": "ours s4",
+    "seconds": 116.0,
+    "two_qubit": 1755,
+    "depth_2q": 205,
+    "duration_ns": 21620.0,
+    "damage": 8.472726513712786,
+    "v3_cost": 6.229235661471777,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   }
+  ]
+ }
+]

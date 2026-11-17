@@ -1,0 +1,17 @@
+floquet_mixed_field_ising_mag_51qx16c.qasm (51 qubits)
+  qiskit         off_target  2q=-  depth2q=-  damage=nan  uses qubits or couplers the calibration marks unusable (error >= 0.5): coupler 57-58, coup
+  ours s0       off_target  2q=-  depth2q=-  damage=nan  uses qubits or couplers the calibration marks unusable (error >= 0.5): coupler 74-86, coup
+  -> no verified comparison
+peaked_circuit_P9_Hqap_56x1917.qasm (56 qubits)
+  qiskit         off_target  2q=-  depth2q=-  damage=nan  uses qubits or couplers the calibration marks unusable (error >= 0.5): coupler 21-34
+  ours s0       off_target  2q=-  depth2q=-  damage=nan  uses qubits or couplers the calibration marks unusable (error >= 0.5): coupler 21-34
+  -> no verified comparison
+nq70_depth70_checks27_basis_fstate.qasm (70 qubits)
+  qiskit         proven      2q=2415  depth2q=70  damage=16.043  qcec equivalent_up_to_global_phase
+  ours s0       proven      2q=2415  depth2q=70  damage=15.509  qcec equivalent
+  -> not better: ours s0 2415 two-qubit gates vs 2415 (+0%)
+49Q_OLE_circuit_L_3_b_0.25_delta0.15.qasm (156 qubits)
+  qiskit         unverified  2q=390  depth2q=32  damage=4.388  undecided in 120 s (timeout); no statevector check above 20 qubits
+  ours s0       unverified  2q=390  depth2q=32  damage=4.379  undecided in 120 s (timeout); no statevector check above 20 qubits
+  -> no verified comparison
+done: frontier/results/20261116-185633/REPORT.md

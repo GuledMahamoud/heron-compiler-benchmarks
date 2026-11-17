@@ -1,0 +1,77 @@
+[
+ {
+  "circuit": "anderson_momentum_trotter-3.qasm",
+  "qubits": 64,
+  "source_2q": 734,
+  "note": "",
+  "rows": [
+   {
+    "compiler": "qiskit",
+    "seed": 26,
+    "seconds": 60.8,
+    "two_qubit": 1957,
+    "depth_2q": 227,
+    "duration_ns": 26364.0,
+    "damage": 17.031158542795193,
+    "v3_cost": 6.505965406473561,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   },
+   {
+    "compiler": "ours s0",
+    "seconds": 115.0,
+    "two_qubit": 1972,
+    "depth_2q": 203,
+    "duration_ns": 23604.0,
+    "damage": 15.187759903006082,
+    "v3_cost": 6.423783541689174,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   },
+   {
+    "compiler": "ours s1",
+    "seconds": 116.0,
+    "two_qubit": 2038,
+    "depth_2q": 221,
+    "duration_ns": 25224.0,
+    "damage": 16.242596721158193,
+    "v3_cost": 6.486530054060753,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   },
+   {
+    "compiler": "ours s2",
+    "seconds": 115.8,
+    "two_qubit": 1672,
+    "depth_2q": 176,
+    "duration_ns": 20448.0,
+    "damage": 13.454644730246258,
+    "v3_cost": 6.280884268404594,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   },
+   {
+    "compiler": "ours s3",
+    "seconds": 116.2,
+    "two_qubit": 1996,
+    "depth_2q": 199,
+    "duration_ns": 23340.0,
+    "damage": 15.531558343981391,
+    "v3_cost": 6.424639856505371,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   },
+   {
+    "compiler": "ours s4",
+    "seconds": 116.1,
+    "two_qubit": 1888,
+    "depth_2q": 238,
+    "duration_ns": 28488.0,
+    "damage": 16.623864623510535,
+    "v3_cost": 6.52209475929025,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   }
+  ]
+ }
+]

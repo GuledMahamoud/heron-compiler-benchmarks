@@ -1,0 +1,33 @@
+[
+ {
+  "circuit": "x_100_meson.qasm",
+  "qubits": 120,
+  "source_2q": 14170,
+  "note": "",
+  "rows": [
+   {
+    "compiler": "qiskit",
+    "seed": 10,
+    "seconds": 358.4,
+    "two_qubit": 15352,
+    "depth_2q": 739,
+    "duration_ns": 77036.0,
+    "damage": 68.1099873955326,
+    "v3_cost": 7.929720331238424,
+    "status": "proven",
+    "verify": "qcec equivalent_up_to_global_phase"
+   },
+   {
+    "compiler": "ours s0",
+    "seconds": 147.9,
+    "two_qubit": 17218,
+    "depth_2q": 1097,
+    "duration_ns": 115048.0,
+    "damage": 83.95832518971577,
+    "v3_cost": 8.209612069236298,
+    "status": "proven",
+    "verify": "qcec equivalent_up_to_global_phase"
+   }
+  ]
+ }
+]

@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+frontier/results/
+frontier/hardware/
+collect_results.sh

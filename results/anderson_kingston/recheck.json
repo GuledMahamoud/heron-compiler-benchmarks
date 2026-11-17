@@ -1,0 +1,12 @@
+[
+ {
+  "circuit": "anderson_momentum_trotter-1",
+  "compiler": "ours_s0",
+  "status": "timeout",
+  "proven": false,
+  "probable": false,
+  "stage": "formal",
+  "minutes": 60.3,
+  "verdict": "UNDECIDED"
+ }
+]

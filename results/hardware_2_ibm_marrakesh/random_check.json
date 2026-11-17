@@ -1,0 +1,30 @@
+[
+ {
+  "circuit": "anderson_momentum_trotter-1",
+  "compiler": "ours",
+  "qubits": 64,
+  "trials": 2,
+  "bond": 256,
+  "min_fidelity": 0.9999999576872463,
+  "mean_fidelity": 0.999999974968862,
+  "fidelities": [
+   0.9999999922504776,
+   0.9999999576872463
+  ],
+  "minutes": 51.2
+ },
+ {
+  "circuit": "anderson_momentum_trotter-1",
+  "compiler": "ours_2",
+  "qubits": 64,
+  "trials": 2,
+  "bond": 256,
+  "min_fidelity": 0.9999999958711541,
+  "mean_fidelity": 0.9999999961186069,
+  "fidelities": [
+   0.9999999963660597,
+   0.9999999958711541
+  ],
+  "minutes": 3.2
+ }
+]

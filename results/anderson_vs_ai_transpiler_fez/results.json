@@ -1,0 +1,131 @@
+[
+ {
+  "circuit": "anderson_momentum_trotter-1.qpy",
+  "qubits": 64,
+  "source_2q": 254,
+  "note": "",
+  "rows": [
+   {
+    "compiler": "qiskit",
+    "seed": 9,
+    "seconds": 30.0,
+    "two_qubit": 953,
+    "depth_2q": 84,
+    "duration_ns": 9840.0,
+    "damage": 7.81204177052598,
+    "v3_cost": 5.6383234747018145,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   },
+   {
+    "compiler": "ai",
+    "dead_avoided": true,
+    "seconds": 34.8,
+    "two_qubit": 692,
+    "depth_2q": 73,
+    "duration_ns": 8508.0,
+    "damage": 7.473556651526563,
+    "v3_cost": 5.476336452194827,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   },
+   {
+    "compiler": "ours s0",
+    "seconds": 114.9,
+    "two_qubit": 729,
+    "depth_2q": 79,
+    "duration_ns": 9276.0,
+    "damage": 7.784594918706471,
+    "v3_cost": 5.540627859209511,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   }
+  ]
+ },
+ {
+  "circuit": "anderson_momentum_trotter-3.qpy",
+  "qubits": 64,
+  "source_2q": 734,
+  "note": "",
+  "rows": [
+   {
+    "compiler": "qiskit",
+    "seed": 26,
+    "seconds": 69.4,
+    "two_qubit": 1957,
+    "depth_2q": 227,
+    "duration_ns": 26364.0,
+    "damage": 17.03010490647027,
+    "v3_cost": 6.505949939690792,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   },
+   {
+    "compiler": "ai",
+    "dead_avoided": true,
+    "seconds": 58.7,
+    "two_qubit": 2037,
+    "depth_2q": 232,
+    "duration_ns": 26664.0,
+    "damage": 22.02716966586375,
+    "v3_cost": 6.588536616646729,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   },
+   {
+    "compiler": "ours s0",
+    "seconds": 114.5,
+    "two_qubit": 1972,
+    "depth_2q": 203,
+    "duration_ns": 23604.0,
+    "damage": 15.459450763240303,
+    "v3_cost": 6.42821621226624,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   }
+  ]
+ },
+ {
+  "circuit": "anderson_momentum_trotter-7.qpy",
+  "qubits": 64,
+  "source_2q": 1694,
+  "note": "",
+  "rows": [
+   {
+    "compiler": "qiskit",
+    "seed": 0,
+    "seconds": 145.9,
+    "two_qubit": 4310,
+    "depth_2q": 468,
+    "duration_ns": 53208.0,
+    "damage": 30.78859248290045,
+    "v3_cost": 7.207163756147429,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   },
+   {
+    "compiler": "ai",
+    "dead_avoided": true,
+    "seconds": 226.5,
+    "two_qubit": 5250,
+    "depth_2q": 545,
+    "duration_ns": 61812.0,
+    "damage": 45.82682533970004,
+    "v3_cost": 7.4313828481155335,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   },
+   {
+    "compiler": "ours s0",
+    "seconds": 113.8,
+    "two_qubit": 4310,
+    "depth_2q": 468,
+    "duration_ns": 53040.0,
+    "damage": 30.346745551986377,
+    "v3_cost": 7.2027594256873995,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   }
+  ]
+ }
+]

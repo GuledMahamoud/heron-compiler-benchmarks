@@ -1,0 +1,95 @@
+[
+ {
+  "circuit": "anderson_momentum_trotter-1.qasm",
+  "qubits": 64,
+  "source_2q": 254,
+  "note": "",
+  "rows": [
+   {
+    "compiler": "qiskit",
+    "seed": 5,
+    "seconds": 31.9,
+    "two_qubit": 829,
+    "depth_2q": 98,
+    "duration_ns": 10760.0,
+    "damage": 5.38650559884473,
+    "v3_cost": 5.571031544974711,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   },
+   {
+    "compiler": "ours s0",
+    "seconds": 115.8,
+    "two_qubit": 764,
+    "depth_2q": 82,
+    "duration_ns": 9000.0,
+    "damage": 4.356688828272811,
+    "v3_cost": 5.408879932165375,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   }
+  ]
+ },
+ {
+  "circuit": "anderson_momentum_trotter-3.qasm",
+  "qubits": 64,
+  "source_2q": 734,
+  "note": "",
+  "rows": [
+   {
+    "compiler": "qiskit",
+    "seed": 21,
+    "seconds": 59.8,
+    "two_qubit": 1849,
+    "depth_2q": 228,
+    "duration_ns": 24848.0,
+    "damage": 10.542370954342735,
+    "v3_cost": 6.358159544234751,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   },
+   {
+    "compiler": "ours s0",
+    "seconds": 115.8,
+    "two_qubit": 1891,
+    "depth_2q": 197,
+    "duration_ns": 22032.0,
+    "damage": 8.848675556178915,
+    "v3_cost": 6.253555295480489,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   }
+  ]
+ },
+ {
+  "circuit": "anderson_momentum_trotter-7.qasm",
+  "qubits": 64,
+  "source_2q": 1694,
+  "note": "",
+  "rows": [
+   {
+    "compiler": "qiskit",
+    "seed": 13,
+    "seconds": 119.7,
+    "two_qubit": 4391,
+    "depth_2q": 443,
+    "duration_ns": 48492.0,
+    "damage": 20.057203300364677,
+    "v3_cost": 7.067781909579124,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   },
+   {
+    "compiler": "ours s0",
+    "seconds": 116.1,
+    "two_qubit": 4161,
+    "depth_2q": 469,
+    "duration_ns": 51188.0,
+    "damage": 18.166789296214127,
+    "v3_cost": 7.057339702270421,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   }
+  ]
+ }
+]

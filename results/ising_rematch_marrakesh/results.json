@@ -1,0 +1,33 @@
+[
+ {
+  "circuit": "floquet_mixed_field_ising_mag_51qx16c.qasm",
+  "qubits": 51,
+  "source_2q": 896,
+  "note": "",
+  "rows": [
+   {
+    "compiler": "qiskit",
+    "seed": 14,
+    "seconds": 42.9,
+    "two_qubit": 4095,
+    "depth_2q": 535,
+    "duration_ns": 59828.0,
+    "damage": 27.07400359609815,
+    "v3_cost": 7.224930022649961,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   },
+   {
+    "compiler": "ours s0",
+    "seconds": 115.0,
+    "two_qubit": 3512,
+    "depth_2q": 401,
+    "duration_ns": 46340.0,
+    "damage": 25.97921365060215,
+    "v3_cost": 7.040439215390324,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   }
+  ]
+ }
+]

@@ -1,0 +1,9 @@
+anderson_momentum_trotter-3.qasm (64 qubits)
+  qiskit         unverified  2q=1957  depth2q=227  damage=17.031  undecided in 120 s (timeout); no statevector check above 20 qubits
+  ours s0       unverified  2q=1972  depth2q=203  damage=15.188  undecided in 120 s (timeout); no statevector check above 20 qubits
+  ours s1       unverified  2q=2038  depth2q=221  damage=16.243  undecided in 120 s (timeout); no statevector check above 20 qubits
+  ours s2       unverified  2q=1672  depth2q=176  damage=13.455  undecided in 120 s (timeout); no statevector check above 20 qubits
+  ours s3       unverified  2q=1996  depth2q=199  damage=15.532  undecided in 120 s (timeout); no statevector check above 20 qubits
+  ours s4       unverified  2q=1888  depth2q=238  damage=16.624  undecided in 120 s (timeout); no statevector check above 20 qubits
+  -> no verified comparison
+done: frontier/results/20261117-060511/REPORT.md

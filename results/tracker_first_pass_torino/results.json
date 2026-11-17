@@ -1,0 +1,106 @@
+[
+ {
+  "circuit": "floquet_mixed_field_ising_mag_51qx16c.qasm",
+  "qubits": 51,
+  "source_2q": 896,
+  "note": "",
+  "rows": [
+   {
+    "compiler": "qiskit",
+    "seed": 0,
+    "seconds": 7.0,
+    "status": "off_target",
+    "error": "uses qubits or couplers the calibration marks unusable (error >= 0.5): coupler 57-58, coupler 58-59"
+   },
+   {
+    "compiler": "ours s0",
+    "seconds": 111.2,
+    "status": "off_target",
+    "error": "uses qubits or couplers the calibration marks unusable (error >= 0.5): coupler 74-86, coupler 85-86, qubit 85, qubit 86, readout 86"
+   }
+  ]
+ },
+ {
+  "circuit": "peaked_circuit_P9_Hqap_56x1917.qasm",
+  "qubits": 56,
+  "source_2q": 1917,
+  "note": "",
+  "rows": [
+   {
+    "compiler": "qiskit",
+    "seed": 3,
+    "seconds": 35.9,
+    "status": "off_target",
+    "error": "uses qubits or couplers the calibration marks unusable (error >= 0.5): coupler 21-34"
+   },
+   {
+    "compiler": "ours s0",
+    "seconds": 114.5,
+    "status": "off_target",
+    "error": "uses qubits or couplers the calibration marks unusable (error >= 0.5): coupler 21-34"
+   }
+  ]
+ },
+ {
+  "circuit": "nq70_depth70_checks27_basis_fstate.qasm",
+  "qubits": 70,
+  "source_2q": 2415,
+  "note": "",
+  "rows": [
+   {
+    "compiler": "qiskit",
+    "seed": 0,
+    "seconds": 5.0,
+    "two_qubit": 2415,
+    "depth_2q": 70,
+    "duration_ns": 11544.0,
+    "damage": 16.043331584372442,
+    "v3_cost": 6.045462360879178,
+    "status": "proven",
+    "verify": "qcec equivalent_up_to_global_phase"
+   },
+   {
+    "compiler": "ours s0",
+    "seconds": 115.2,
+    "two_qubit": 2415,
+    "depth_2q": 70,
+    "duration_ns": 10424.0,
+    "damage": 15.50912074425301,
+    "v3_cost": 6.0114846921853164,
+    "status": "proven",
+    "verify": "qcec equivalent"
+   }
+  ]
+ },
+ {
+  "circuit": "49Q_OLE_circuit_L_3_b_0.25_delta0.15.qasm",
+  "qubits": 49,
+  "source_2q": 648,
+  "note": "reduced from 156 to its 49 active qubits",
+  "rows": [
+   {
+    "compiler": "qiskit",
+    "seed": 0,
+    "seconds": 1.4,
+    "two_qubit": 390,
+    "depth_2q": 32,
+    "duration_ns": 5168.0,
+    "damage": 4.388033044402302,
+    "v3_cost": 4.873632679915507,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   },
+   {
+    "compiler": "ours s0",
+    "seconds": 108.1,
+    "two_qubit": 390,
+    "depth_2q": 32,
+    "duration_ns": 4864.0,
+    "damage": 4.379152477765794,
+    "v3_cost": 4.85797308087753,
+    "status": "unverified",
+    "verify": "undecided in 120 s (timeout); no statevector check above 20 qubits"
+   }
+  ]
+ }
+]

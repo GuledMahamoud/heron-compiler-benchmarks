@@ -1,0 +1,5 @@
+floquet_mixed_field_ising_mag_51qx16c.qasm (51 qubits)
+  qiskit         unverified  2q=4095  depth2q=535  damage=27.074  undecided in 120 s (timeout); no statevector check above 20 qubits
+  ours s0       unverified  2q=3512  depth2q=401  damage=25.979  undecided in 120 s (timeout); no statevector check above 20 qubits
+  -> no verified comparison
+done: frontier/results/20261116-203026/REPORT.md

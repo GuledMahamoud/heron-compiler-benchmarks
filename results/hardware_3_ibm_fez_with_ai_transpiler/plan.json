@@ -1,0 +1,155 @@
+{
+ "backend": "ibm_fez",
+ "spec": "ibm:ibm_fez",
+ "prepared": "2026-11-17T10:10:32",
+ "dry_run": false,
+ "program": "ours",
+ "split": 32,
+ "circuits": [
+  {
+   "name": "anderson_momentum_trotter-1",
+   "qubits": 64,
+   "sector": [
+    16,
+    16
+   ],
+   "variants": {
+    "qiskit": {
+     "seed": "seed 19",
+     "two_qubit": 916,
+     "depth_2q": 98,
+     "damage": 7.21329145788663,
+     "predicted_fidelity": 0.0007367282503263307,
+     "v3_cost": 5.641483199766254
+    },
+    "qiskit_2": {
+     "seed": "seed 7",
+     "two_qubit": 839,
+     "depth_2q": 104,
+     "damage": 7.506003982786577,
+     "predicted_fidelity": 0.0005497736099290881,
+     "v3_cost": 5.660474028924275
+    },
+    "ours": {
+     "seed": "seed 1",
+     "two_qubit": 778,
+     "depth_2q": 82,
+     "damage": 6.002691168961746,
+     "predicted_fidelity": 0.002472090403743509,
+     "v3_cost": 5.468554767883288
+    },
+    "ours_2": {
+     "seed": "seed 4",
+     "two_qubit": 807,
+     "depth_2q": 81,
+     "damage": 6.42916908500702,
+     "predicted_fidelity": 0.0016137912008486364,
+     "v3_cost": 5.491944277569528
+    },
+    "ai": {
+     "seed": "ai run",
+     "two_qubit": 742,
+     "depth_2q": 85,
+     "damage": 12.615420448356055,
+     "predicted_fidelity": 3.320416110651348e-06,
+     "v3_cost": 5.656745391649252
+    },
+    "ai_2": {
+     "seed": "ai run",
+     "two_qubit": 740,
+     "depth_2q": 75,
+     "damage": 9.914729049368484,
+     "predicted_fidelity": 4.944107263450339e-05,
+     "v3_cost": 5.541274992237254
+    }
+   }
+  }
+ ],
+ "job": {
+  "id": "dbu2rtgvv3fc73c0nhbg",
+  "shots": 8000,
+  "labels": [
+   [
+    "anderson_momentum_trotter-1",
+    "qiskit"
+   ],
+   [
+    "anderson_momentum_trotter-1",
+    "qiskit_2"
+   ],
+   [
+    "anderson_momentum_trotter-1",
+    "ours"
+   ],
+   [
+    "anderson_momentum_trotter-1",
+    "ours_2"
+   ],
+   [
+    "anderson_momentum_trotter-1",
+    "ai"
+   ],
+   [
+    "anderson_momentum_trotter-1",
+    "ai_2"
+   ]
+  ],
+  "submitted": "2026-11-17T10:35:35"
+ },
+ "measured": [
+  {
+   "circuit": "anderson_momentum_trotter-1",
+   "variant": "qiskit",
+   "two_qubit": 916,
+   "damage": 7.21329145788663,
+   "in_sector": 0.034375,
+   "stderr": 0.0020369511338947234,
+   "shots": 8000
+  },
+  {
+   "circuit": "anderson_momentum_trotter-1",
+   "variant": "qiskit_2",
+   "two_qubit": 839,
+   "damage": 7.506003982786577,
+   "in_sector": 0.02425,
+   "stderr": 0.001719808764804971,
+   "shots": 8000
+  },
+  {
+   "circuit": "anderson_momentum_trotter-1",
+   "variant": "ours",
+   "two_qubit": 778,
+   "damage": 6.002691168961746,
+   "in_sector": 0.034375,
+   "stderr": 0.0020369511338947234,
+   "shots": 8000
+  },
+  {
+   "circuit": "anderson_momentum_trotter-1",
+   "variant": "ours_2",
+   "two_qubit": 807,
+   "damage": 6.42916908500702,
+   "in_sector": 0.0305,
+   "stderr": 0.0019225552657856158,
+   "shots": 8000
+  },
+  {
+   "circuit": "anderson_momentum_trotter-1",
+   "variant": "ai",
+   "two_qubit": 742,
+   "damage": 12.615420448356055,
+   "in_sector": 0.0165,
+   "stderr": 0.0014242432200997134,
+   "shots": 8000
+  },
+  {
+   "circuit": "anderson_momentum_trotter-1",
+   "variant": "ai_2",
+   "two_qubit": 740,
+   "damage": 9.914729049368484,
+   "in_sector": 0.0305,
+   "stderr": 0.0019225552657856158,
+   "shots": 8000
+  }
+ ]
+}
