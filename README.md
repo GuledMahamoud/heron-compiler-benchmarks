@@ -45,14 +45,17 @@ time. Score = share of shots in the right sector; two compilations per compiler 
 | 1 | ibm_fez | 4.18%, 3.93% | 3.55%, 1.85% | – |
 | 2 | ibm_marrakesh | 4.65%, 2.59% | 2.17%, 3.44% | – |
 | 3 | ibm_fez | 3.44%, 3.05% | 3.44%, 2.43% | 1.65%, 3.05% |
+| 4 | ibm_kingston | 4.98%, 3.91% | 5.19%, 3.31% | – |
 
-Averaged over the three runs, this compiler kept about **1.3×** as many in-sector shots as Qiskit
-(3.6% vs 2.8%), and won 9 of 12 head-to-head comparisons (1 tie). Against the AI transpiler (run 3 only)
-about 1.4×. The signal is small (everything is close to the 2% random level), runs vary, and this is one
-circuit, so treat it as **early evidence**, not a settled result. trotter-3 on hardware was
-indistinguishable from random for every compiler.
+Averaged over the four runs, this compiler kept about **1.2×** as many in-sector shots as Qiskit
+(3.8% vs 3.2%), and won 11 of 16 head-to-head comparisons (1 tie). Against the AI transpiler (run 3 only)
+about 1.4×. Run 4, on ibm_kingston, was close to a tie: Kingston gave higher scores to both compilers,
+and the gap was within the noise. One possible reason is that the gain is smaller when a chip is in
+better shape, as with the Ising circuit; more runs are needed to tell. The signal is small (everything is close to
+the 2% random level), runs vary, and this is one circuit, so treat it as **early evidence**, not a
+settled result. trotter-3 on hardware was indistinguishable from random for every compiler.
 
-**Correctness.** Every compiled circuit that ran on hardware was checked against the original on random
+**Correctness.** Every compiled circuit from hardware runs 1–3 was checked against the original on random
 input states with a matrix-product-state simulator: all scored 1.000000 (exact match to simulator
 precision). A deliberately broken copy (one two-qubit gate removed) scored far lower (averages 0.10 and 0.35
 over two tests; individual inputs 0.01 to 0.98), so the check does catch errors. Smaller outputs are proven equivalent with
