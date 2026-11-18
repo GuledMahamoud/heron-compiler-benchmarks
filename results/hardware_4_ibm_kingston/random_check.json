@@ -1,0 +1,72 @@
+[
+ {
+  "circuit": "anderson_momentum_trotter-1",
+  "compiler": "ours",
+  "qubits": 66,
+  "trials": 2,
+  "bond": 256,
+  "min_fidelity": 0.9999999655959607,
+  "mean_fidelity": 0.9999999734941251,
+  "fidelities": [
+   0.9999999813922894,
+   0.9999999655959607
+  ],
+  "minutes": 124.2
+ },
+ {
+  "circuit": "anderson_momentum_trotter-1",
+  "compiler": "ours_2",
+  "qubits": 67,
+  "trials": 2,
+  "bond": 256,
+  "min_fidelity": 0.9999999958254846,
+  "mean_fidelity": 0.9999999960813232,
+  "fidelities": [
+   0.9999999963371617,
+   0.9999999958254846
+  ],
+  "minutes": 10.4
+ },
+ {
+  "circuit": "anderson_momentum_trotter-1",
+  "compiler": "qiskit",
+  "qubits": 69,
+  "trials": 2,
+  "bond": 256,
+  "min_fidelity": 0.9999999981069725,
+  "mean_fidelity": 0.9999999983733568,
+  "fidelities": [
+   0.9999999981069725,
+   0.9999999986397412
+  ],
+  "minutes": 2.5
+ },
+ {
+  "circuit": "anderson_momentum_trotter-1",
+  "compiler": "qiskit_2",
+  "qubits": 65,
+  "trials": 2,
+  "bond": 256,
+  "min_fidelity": 0.9999999981068814,
+  "mean_fidelity": 0.9999999983733538,
+  "fidelities": [
+   0.9999999981068814,
+   0.9999999986398262
+  ],
+  "minutes": 1.7
+ },
+ {
+  "circuit": "anderson_momentum_trotter-1",
+  "compiler": "ours BROKEN (control)",
+  "qubits": 66,
+  "trials": 2,
+  "bond": 256,
+  "min_fidelity": 0.2605741895525997,
+  "mean_fidelity": 0.3256597597529135,
+  "fidelities": [
+   0.3907453299532273,
+   0.2605741895525997
+  ],
+  "minutes": 109.9
+ }
+]
