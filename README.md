@@ -11,7 +11,31 @@ from, the scripts that scored and verified them, and the hardware job results.
 *Status: work in progress, November 2026. Not peer-reviewed. Numbers below are what I measured, with
 their limits.*
 
-## Results in short
+## Latest: version 2 on real hardware (19 November 2026)
+
+A newer version of the compiler, found by a later round of the same private search, places the circuit
+in healthier parts of the chip and routes away from its noisiest connections. On Anderson trotter-1
+it was tested on two IBM chips against Qiskit level 3 (best of 32 seeds), compiled on the same live
+calibration:
+
+| Run | Chip | Version 2 | Qiskit | Predicted error, v2 vs Qiskit best |
+|---|---|---|---|---|
+| 5 | ibm_kingston | **7.15%, 6.16%** | 5.76%, 3.89% | 3.43 vs 5.08 (32% lower) |
+| 6 | ibm_fez | **5.06%, 4.32%** | 4.24%, 4.05% | 5.47 vs 6.47 (15% lower) |
+
+- Both version-2 compilations beat both Qiskit compilations on both chips (8 of 8).
+- About **1.38×** Qiskit's in-sector shots on Kingston and **1.13×** on Fez; about **1.26×** averaged
+  over the two runs (5.7% vs 4.5%).
+- The size of the gain followed the predicted error: large where the model predicted a large gap
+  (Kingston), smaller where it predicted a smaller one (Fez).
+- All four version-2 circuits that ran passed the random-input correctness check (1.000000); the broken
+  controls scored 0.61 to 0.84.
+- Not everywhere: in simulation, version 2 is **worse** than Qiskit on the 120-qubit hadron circuit
+  (14% more two-qubit gates), where the circuit fills most of the chip.
+
+Two runs on one circuit is still a small sample. Runs 1–4 below used the first version.
+
+## Results in short (first version)
 
 **Circuits.** From the [Quantum Advantage Tracker](https://quantum-advantage-tracker.github.io/), mainly
 the Anderson impurity model Trotter circuits (64 qubits) from the IBM / Oak Ridge National Laboratory /
@@ -55,10 +79,10 @@ better shape, as with the Ising circuit; more runs are needed to tell. The signa
 the 2% random level), runs vary, and this is one circuit, so treat it as **early evidence**, not a
 settled result. trotter-3 on hardware was indistinguishable from random for every compiler.
 
-**Correctness.** Every compiled circuit from hardware runs 1–3 was checked against the original on random
+**Correctness.** Every compiled circuit from all six hardware runs was checked against the original on random
 input states with a matrix-product-state simulator: all scored 1.000000 (exact match to simulator
-precision). A deliberately broken copy (one two-qubit gate removed) scored far lower (averages 0.10 and 0.35
-over two tests; individual inputs 0.01 to 0.98), so the check does catch errors. Smaller outputs are proven equivalent with
+precision). A deliberately broken copy (one two-qubit gate removed) scored far lower (averages 0.10 to 0.73
+over five tests; individual inputs 0.01 to 0.98), so the check does catch errors. Smaller outputs are proven equivalent with
 [MQT QCEC](https://github.com/cda-tum/mqt-qcec).
 
 ## Relative-phase Toffoli pairs
@@ -95,7 +119,7 @@ enough (each run above used under 10 seconds).
 
 ## Limits
 
-- One main circuit family on hardware; small effects; not peer-reviewed.
+- One circuit family on hardware (six runs, three chips); not peer-reviewed.
 - Predicted error comes from my own model; it ranked pairs of compilations correctly about 80% of the time
   in earlier hardware tests.
 - The compiler is slow (about 2 minutes per 64-qubit circuit) and does not scale to 100+ qubit circuits yet.

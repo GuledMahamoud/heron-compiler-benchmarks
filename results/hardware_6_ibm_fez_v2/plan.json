@@ -1,0 +1,113 @@
+{
+ "backend": "ibm_fez",
+ "spec": "ibm:ibm_fez",
+ "prepared": "2026-11-19T10:08:16",
+ "dry_run": false,
+ "program": "frontier/programs_private/ours.py",
+ "split": 32,
+ "circuits": [
+  {
+   "name": "anderson_momentum_trotter-1",
+   "qubits": 64,
+   "sector": [
+    16,
+    16
+   ],
+   "variants": {
+    "qiskit": {
+     "seed": "seed 9",
+     "two_qubit": 791,
+     "depth_2q": 94,
+     "damage": 6.46531751491507,
+     "predicted_fidelity": 0.0015564969697582272,
+     "v3_cost": 5.554945454369763
+    },
+    "qiskit_2": {
+     "seed": "seed 2",
+     "two_qubit": 749,
+     "depth_2q": 102,
+     "damage": 7.289961809099465,
+     "predicted_fidelity": 0.0006823541119767813,
+     "v3_cost": 5.610119702307543
+    },
+    "ours": {
+     "seed": "seed 3",
+     "two_qubit": 718,
+     "depth_2q": 62,
+     "damage": 5.8281490171544785,
+     "predicted_fidelity": 0.002943520346547466,
+     "v3_cost": 5.307245005937118
+    },
+    "ours_2": {
+     "seed": "seed 4",
+     "two_qubit": 619,
+     "depth_2q": 74,
+     "damage": 5.47031133947724,
+     "predicted_fidelity": 0.004209921239259394,
+     "v3_cost": 5.340862897892727
+    }
+   }
+  }
+ ],
+ "job": {
+  "id": "dbvd49n82tmc73durir0",
+  "shots": 8000,
+  "labels": [
+   [
+    "anderson_momentum_trotter-1",
+    "qiskit"
+   ],
+   [
+    "anderson_momentum_trotter-1",
+    "qiskit_2"
+   ],
+   [
+    "anderson_momentum_trotter-1",
+    "ours"
+   ],
+   [
+    "anderson_momentum_trotter-1",
+    "ours_2"
+   ]
+  ],
+  "submitted": "2026-11-19T10:40:38"
+ },
+ "measured": [
+  {
+   "circuit": "anderson_momentum_trotter-1",
+   "variant": "qiskit",
+   "two_qubit": 791,
+   "damage": 6.46531751491507,
+   "in_sector": 0.0405,
+   "stderr": 0.002203966594574428,
+   "shots": 8000
+  },
+  {
+   "circuit": "anderson_momentum_trotter-1",
+   "variant": "qiskit_2",
+   "two_qubit": 749,
+   "damage": 7.289961809099465,
+   "in_sector": 0.042375,
+   "stderr": 0.0022522033482514406,
+   "shots": 8000
+  },
+  {
+   "circuit": "anderson_momentum_trotter-1",
+   "variant": "ours",
+   "two_qubit": 718,
+   "damage": 5.8281490171544785,
+   "in_sector": 0.050625,
+   "stderr": 0.0024510739833540317,
+   "shots": 8000
+  },
+  {
+   "circuit": "anderson_momentum_trotter-1",
+   "variant": "ours_2",
+   "two_qubit": 619,
+   "damage": 5.47031133947724,
+   "in_sector": 0.04325,
+   "stderr": 0.0022742976250921952,
+   "shots": 8000
+  }
+ ]
+}

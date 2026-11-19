@@ -1,0 +1,44 @@
+[
+ {
+  "circuit": "anderson_momentum_trotter-1",
+  "compiler": "ours",
+  "qubits": 65,
+  "trials": 2,
+  "bond": 256,
+  "min_fidelity": 0.9999999981054748,
+  "mean_fidelity": 0.9999999983705403,
+  "fidelities": [
+   0.9999999981054748,
+   0.9999999986356058
+  ],
+  "minutes": 10.0
+ },
+ {
+  "circuit": "anderson_momentum_trotter-1",
+  "compiler": "ours_2",
+  "qubits": 68,
+  "trials": 2,
+  "bond": 256,
+  "min_fidelity": 0.9999999981071501,
+  "mean_fidelity": 0.9999999983736039,
+  "fidelities": [
+   0.9999999981071501,
+   0.9999999986400576
+  ],
+  "minutes": 1.4
+ },
+ {
+  "circuit": "anderson_momentum_trotter-1",
+  "compiler": "ours BROKEN (control)",
+  "qubits": 65,
+  "trials": 2,
+  "bond": 256,
+  "min_fidelity": 0.6369170053769121,
+  "mean_fidelity": 0.6608162655688714,
+  "fidelities": [
+   0.6847155257608306,
+   0.6369170053769121
+  ],
+  "minutes": 18.6
+ }
+]
