@@ -1,0 +1,44 @@
+[
+ {
+  "circuit": "adder_n28",
+  "compiler": "ours",
+  "qubits": 28,
+  "trials": 2,
+  "bond": 256,
+  "min_fidelity": 0.9999999999996667,
+  "mean_fidelity": 0.9999999999996716,
+  "fidelities": [
+   0.9999999999996765,
+   0.9999999999996667
+  ],
+  "minutes": 0.0
+ },
+ {
+  "circuit": "adder_n28",
+  "compiler": "ours_2",
+  "qubits": 29,
+  "trials": 2,
+  "bond": 256,
+  "min_fidelity": 0.9999999999998737,
+  "mean_fidelity": 0.9999999999998967,
+  "fidelities": [
+   0.9999999999998737,
+   0.9999999999999198
+  ],
+  "minutes": 0.0
+ },
+ {
+  "circuit": "adder_n28",
+  "compiler": "ours BROKEN (control)",
+  "qubits": 28,
+  "trials": 2,
+  "bond": 256,
+  "min_fidelity": 0.1539501159851205,
+  "mean_fidelity": 0.2159143958072564,
+  "fidelities": [
+   0.27787867562939234,
+   0.1539501159851205
+  ],
+  "minutes": 0.0
+ }
+]

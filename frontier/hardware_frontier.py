@@ -82,6 +82,31 @@ def conserves(src, split: int) -> str | None:
     return None
 
 
+CLASSICAL_GATES = {"x", "cx", "ccx", "swap", "cswap", "id", "barrier"}
+
+
+def classical_output(src) -> str | None:
+    """For a classical reversible circuit (X, CX, CCX, SWAP, CSWAP from |0...0>): the one correct output,
+    as a string whose character i is qubit i.  None if the circuit has any other gate."""
+    bits = [0] * src.num_qubits
+    for inst in src.data:
+        name = inst.operation.name
+        qs = [src.find_bit(q).index for q in inst.qubits]
+        if name not in CLASSICAL_GATES:
+            return None
+        if name == "x":
+            bits[qs[0]] ^= 1
+        elif name == "cx":
+            bits[qs[1]] ^= bits[qs[0]]
+        elif name == "ccx":
+            bits[qs[2]] ^= bits[qs[0]] & bits[qs[1]]
+        elif name == "swap":
+            bits[qs[0]], bits[qs[1]] = bits[qs[1]], bits[qs[0]]
+        elif name == "cswap" and bits[qs[0]]:
+            bits[qs[1]], bits[qs[2]] = bits[qs[2]], bits[qs[1]]
+    return "".join(map(str, bits))
+
+
 def top2(cands: list[tuple[float, str, object, dict]]):
     """Best and next-best by cost, the second with a different two-qubit count if one exists."""
     cands = sorted(cands, key=lambda c: c[0])
@@ -116,15 +141,25 @@ def prepare(a) -> int:
             "dry_run": spec.startswith("fake:"), "program": a.program, "split": a.split, "circuits": []}
     for s in a.sources:
         src = RF.load_circuit(ROOT / s)
+        if any(i.operation.name == "measure" for i in src.data):
+            src = src.remove_final_measurements(inplace=False)  # submit adds its own measurements
         name = Path(s).stem
+        expect = None
         why = conserves(src, a.split)
         if why:
-            print(f"{name}: skipped, {why}"); continue
-        up, down = sector_of(src, a.split)
+            expect = classical_output(src)
+            if expect is None:
+                print(f"{name}: skipped, {why}, and it is not a classical reversible circuit"); continue
+            up = down = None
+        else:
+            up, down = sector_of(src, a.split)
         src_path = out / "sources" / f"{name}.qpy"
         with open(src_path, "wb") as f:
             qpy.dump(src, f)
-        print(f"{name}: {src.num_qubits} qubits, ideal sector ({up}, {down})", flush=True)
+        if expect is None:
+            print(f"{name}: {src.num_qubits} qubits, ideal sector ({up}, {down})", flush=True)
+        else:
+            print(f"{name}: {src.num_qubits} qubits, classical; correct output {expect[::-1]} (qubit 0 rightmost)", flush=True)
 
         q_cands = []
         from qiskit.transpiler import generate_preset_pass_manager
@@ -151,7 +186,13 @@ def prepare(a) -> int:
                 variants[label] = {"seed": seed, "two_qubit": m["two_qubit"], "depth_2q": m["depth_2q"], "damage": m["damage"],
                                    "predicted_fidelity": math.exp(-m["damage"]), "v3_cost": c_cost}
                 print(f"  {label:<9} {seed:<8} 2q={m['two_qubit']} depth2q={m['depth_2q']} damage={m['damage']:.3f}", flush=True)
-        plan["circuits"].append({"name": name, "qubits": src.num_qubits, "sector": [up, down], "variants": variants})
+        entry = {"name": name, "qubits": src.num_qubits, "variants": variants}
+        if expect is None:
+            entry["sector"] = [up, down]
+        else:
+            entry["expect"] = expect  # character i = qubit i
+        plan["circuits"].append(entry)
+
 
     (out / "plan.json").write_text(json.dumps(plan, indent=1))
     write_plan_md(plan, out, tag)
@@ -254,6 +295,19 @@ def in_sector(counts: dict, sector: tuple[int, int], split: int) -> tuple[float,
     return good / shots, shots
 
 
+def exact_hits(counts: dict, expect: str) -> tuple[float, int]:
+    """(fraction of shots equal to `expect`, shots).  `expect`[i] is qubit i; count keys are clbit n-1 ... 0."""
+    shots = sum(counts.values())
+    good = sum(n for bits, n in counts.items() if bits.replace(" ", "")[::-1] == expect)
+    return good / shots, shots
+
+
+def score(counts: dict, c: dict, split: int) -> tuple[float, int]:
+    if "expect" in c:
+        return exact_hits(counts, c["expect"])
+    return in_sector(counts, tuple(c["sector"]), split)
+
+
 def collect(a) -> int:
     out = OUTDIR / a.tag
     plan = json.loads((out / "plan.json").read_text())
@@ -263,8 +317,14 @@ def collect(a) -> int:
 
         def counts_for(c, label):
             f = c["variants"][label]["predicted_fidelity"]
-            up, down = c["sector"]; n = c["qubits"]; shots = 4000
+            n = c["qubits"]; shots = 4000
             counts = {}
+            if "expect" in c:
+                for _ in range(shots):
+                    k = c["expect"][::-1] if rng.random() < f else "".join(str(int(x)) for x in rng.integers(0, 2, n))
+                    counts[k] = counts.get(k, 0) + 1
+                return counts
+            up, down = c["sector"]
             for _ in range(shots):
                 if rng.random() < f:
                     bits = ["0"] * n
@@ -292,13 +352,16 @@ def collect(a) -> int:
     rows = []
     for c in plan["circuits"]:
         for label, v in c["variants"].items():
-            frac, shots = in_sector(counts_for(c, label), tuple(c["sector"]), a.split)
+            frac, shots = score(counts_for(c, label), c, a.split)
             rows.append({"circuit": c["name"], "variant": label, "two_qubit": v["two_qubit"], "damage": v["damage"],
                          "in_sector": frac, "stderr": math.sqrt(max(frac * (1 - frac), 1e-12) / shots), "shots": shots})
-    L = [title, "",
-         f"Score: fraction of shots in the ideal electron sector (an ideal chip gives 1.0; {RANDOM_SECTOR_NOTE}). "
-         "Higher is better. ± is one standard error from the shot count.", "",
-         "| circuit | variant | 2q gates | predicted damage | in-sector fraction |", "|---|---|---:|---:|---:|"]
+    exact = any("expect" in c for c in plan["circuits"])
+    note = ("Score: fraction of shots equal to the one correct output (an ideal chip gives 1.0; a random "
+            "bit string matches with probability 2^-n)." if exact else
+            f"Score: fraction of shots in the ideal electron sector (an ideal chip gives 1.0; {RANDOM_SECTOR_NOTE}).")
+    L = [title, "", note + " Higher is better. ± is one standard error from the shot count.", "",
+         f"| circuit | variant | 2q gates | predicted damage | {'correct-output' if exact else 'in-sector'} fraction |",
+         "|---|---|---:|---:|---:|"]
     for r in rows:
         L.append(f"| {r['circuit']} | {r['variant']} | {r['two_qubit']} | {r['damage']:.3f} | {r['in_sector']:.4f} ± {r['stderr']:.4f} |")
     L.append("")

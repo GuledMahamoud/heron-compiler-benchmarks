@@ -1,0 +1,110 @@
+{
+ "backend": "ibm_fez",
+ "spec": "ibm:ibm_fez",
+ "prepared": "2026-11-19T12:31:27",
+ "dry_run": false,
+ "program": "frontier/programs_private/ours.py",
+ "split": 32,
+ "circuits": [
+  {
+   "name": "adder_n28",
+   "qubits": 28,
+   "variants": {
+    "qiskit": {
+     "seed": "seed 10",
+     "two_qubit": 344,
+     "depth_2q": 179,
+     "damage": 3.5744837018835325,
+     "predicted_fidelity": 0.02802989382037218,
+     "v3_cost": 5.520597557063461
+    },
+    "qiskit_2": {
+     "seed": "seed 16",
+     "two_qubit": 356,
+     "depth_2q": 181,
+     "damage": 3.8250015118808203,
+     "predicted_fidelity": 0.021818402544193496,
+     "v3_cost": 5.551282398826653
+    },
+    "ours": {
+     "seed": "seed 0",
+     "two_qubit": 222,
+     "depth_2q": 91,
+     "damage": 2.156739261315491,
+     "predicted_fidelity": 0.11570177988082399,
+     "v3_cost": 4.959073695370725
+    },
+    "ours_2": {
+     "seed": "seed 3",
+     "two_qubit": 234,
+     "depth_2q": 91,
+     "damage": 2.235368943458429,
+     "predicted_fidelity": 0.10695266308765193,
+     "v3_cost": 4.99553081083513
+    }
+   },
+   "expect": "0111111111110000000000001111"
+  }
+ ],
+ "job": {
+  "id": "dbveu39cn7vc73egpcj0",
+  "shots": 8000,
+  "labels": [
+   [
+    "adder_n28",
+    "qiskit"
+   ],
+   [
+    "adder_n28",
+    "qiskit_2"
+   ],
+   [
+    "adder_n28",
+    "ours"
+   ],
+   [
+    "adder_n28",
+    "ours_2"
+   ]
+  ],
+  "submitted": "2026-11-19T12:43:57"
+ },
+ "measured": [
+  {
+   "circuit": "adder_n28",
+   "variant": "qiskit",
+   "two_qubit": 344,
+   "damage": 3.5744837018835325,
+   "in_sector": 0.0005,
+   "stderr": 0.00024993749218554627,
+   "shots": 8000
+  },
+  {
+   "circuit": "adder_n28",
+   "variant": "qiskit_2",
+   "two_qubit": 356,
+   "damage": 3.8250015118808203,
+   "in_sector": 0.00175,
+   "stderr": 0.0004672977503690768,
+   "shots": 8000
+  },
+  {
+   "circuit": "adder_n28",
+   "variant": "ours",
+   "two_qubit": 222,
+   "damage": 2.156739261315491,
+   "in_sector": 0.033375,
+   "stderr": 0.002008143090488076,
+   "shots": 8000
+  },
+  {
+   "circuit": "adder_n28",
+   "variant": "ours_2",
+   "two_qubit": 234,
+   "damage": 2.235368943458429,
+   "in_sector": 0.039625,
+   "stderr": 0.0021810221048570323,
+   "shots": 8000
+  }
+ ]
+}

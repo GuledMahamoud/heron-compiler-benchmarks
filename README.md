@@ -14,26 +14,43 @@ their limits.*
 ## Latest: version 2 on real hardware (19 November 2026)
 
 A newer version of the compiler, found by a later round of the same private search, places the circuit
-in healthier parts of the chip and routes away from its noisiest connections. On Anderson trotter-1
-it was tested on two IBM chips against Qiskit level 3 (best of 32 seeds), compiled on the same live
-calibration:
+in healthier parts of the chip and routes away from its noisiest connections. It was tested on two kinds
+of circuit and two IBM chips, against Qiskit level 3 (best of 32 seeds) compiled on the same live
+calibration. Two compilations per compiler per run; 8,000 shots each.
+
+**Anderson trotter-1 (64 qubits).** Score = share of shots in the correct electron sector.
 
 | Run | Chip | Version 2 | Qiskit | Predicted error, v2 vs Qiskit best |
 |---|---|---|---|---|
-| 5 | ibm_kingston | **7.15%, 6.16%** | 5.76%, 3.89% | 3.43 vs 5.08 (32% lower) |
-| 6 | ibm_fez | **5.06%, 4.32%** | 4.24%, 4.05% | 5.47 vs 6.47 (15% lower) |
+| 5 | ibm_kingston | **7.15%, 6.16%** | 5.76%, 3.89% | 3.43 vs 5.08 |
+| 6 | ibm_fez | **5.06%, 4.32%** | 4.24%, 4.05% | 5.47 vs 6.47 |
 
-- Both version-2 compilations beat both Qiskit compilations on both chips (8 of 8).
-- About **1.38×** Qiskit's in-sector shots on Kingston and **1.13×** on Fez; about **1.26×** averaged
-  over the two runs (5.7% vs 4.5%).
-- The size of the gain followed the predicted error: large where the model predicted a large gap
-  (Kingston), smaller where it predicted a smaller one (Fez).
-- All four version-2 circuits that ran passed the random-input correctness check (1.000000); the broken
-  controls scored 0.61 to 0.84.
+About 1.38× Qiskit on Kingston and 1.13× on Fez (about 1.26× averaged).
+
+**QASMBench adder_n28 (28 qubits, 24 Toffoli gates).** A classical reversible adder with exactly one
+correct output (`1111000000000000111111111110`, qubit 0 rightmost); score = share of shots equal to it.
+A random guess matches with probability 2^-28.
+
+| Run | Chip | Version 2 | Qiskit | Predicted error, v2 vs Qiskit best |
+|---|---|---|---|---|
+| 7 | ibm_kingston | **7.44%**, 1.59% | 0.47%, 1.39% | 1.64 vs 2.67 |
+| 8 | ibm_fez | **3.34%, 3.96%** | 0.05%, 0.18% | 2.16 vs 3.57 |
+
+On Kingston the best version-2 compilation gave the right answer about 5× as often as Qiskit's best; the
+second was only marginally ahead (within the noise), although the model predicted both alike. On Fez,
+Qiskit's compilations almost never gave the right answer, while version 2 did 3–4% of the time.
+
+**Summary.**
+- Version 2 beat Qiskit in all 16 head-to-head comparisons (2 circuits × 2 chips × 2 × 2).
+- The size of the gain broadly followed the predicted error, but the model could not tell apart two
+  similar compilations (adder, Kingston).
+- All eight version-2 circuits that ran passed the random-input correctness check (1.000000); the broken
+  controls scored 0.15 to 0.84.
 - Not everywhere: in simulation, version 2 is **worse** than Qiskit on the 120-qubit hadron circuit
   (14% more two-qubit gates), where the circuit fills most of the chip.
+- Four runs, two circuits, two chips: a small sample, and absolute success rates on today's chips are low.
 
-Two runs on one circuit is still a small sample. Runs 1–4 below used the first version.
+Runs 1–4 below used the first version.
 
 ## Results in short (first version)
 
@@ -79,10 +96,10 @@ better shape, as with the Ising circuit; more runs are needed to tell. The signa
 the 2% random level), runs vary, and this is one circuit, so treat it as **early evidence**, not a
 settled result. trotter-3 on hardware was indistinguishable from random for every compiler.
 
-**Correctness.** Every compiled circuit from all six hardware runs was checked against the original on random
+**Correctness.** Every compiled circuit from all eight hardware runs was checked against the original on random
 input states with a matrix-product-state simulator: all scored 1.000000 (exact match to simulator
 precision). A deliberately broken copy (one two-qubit gate removed) scored far lower (averages 0.10 to 0.73
-over five tests; individual inputs 0.01 to 0.98), so the check does catch errors. Smaller outputs are proven equivalent with
+over seven tests; individual inputs 0.01 to 0.98), so the check does catch errors. Smaller outputs are proven equivalent with
 [MQT QCEC](https://github.com/cda-tum/mqt-qcec).
 
 ## Relative-phase Toffoli pairs
@@ -119,7 +136,7 @@ enough (each run above used under 10 seconds).
 
 ## Limits
 
-- One circuit family on hardware (six runs, three chips); not peer-reviewed.
+- Two circuit types on hardware (eight runs, three chips); not peer-reviewed.
 - Predicted error comes from my own model; it ranked pairs of compilations correctly about 80% of the time
   in earlier hardware tests.
 - The compiler is slow (about 2 minutes per 64-qubit circuit) and does not scale to 100+ qubit circuits yet.
