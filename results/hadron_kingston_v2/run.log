@@ -1,0 +1,7 @@
+x_100_meson.qasm (120 qubits)
+  qiskit         proven      2q=15352  depth2q=739  damage=68.110  qcec equivalent_up_to_global_phase
+  ours s0      proven      2q=15745  depth2q=714  damage=74.394  qcec equivalent_up_to_global_phase
+  ours s1      proven      2q=15352  depth2q=739  damage=68.110  qcec equivalent_up_to_global_phase
+  ours s2      proven      2q=15352  depth2q=739  damage=68.110  qcec equivalent_up_to_global_phase
+  -> not better: ours s1 15352 two-qubit gates vs 15352 (+0%)
+done: frontier/results/20261122-151949/REPORT.md

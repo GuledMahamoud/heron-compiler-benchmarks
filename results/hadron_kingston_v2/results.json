@@ -1,0 +1,59 @@
+[
+ {
+  "circuit": "x_100_meson.qasm",
+  "qubits": 120,
+  "source_2q": 14170,
+  "note": "",
+  "rows": [
+   {
+    "compiler": "qiskit",
+    "seed": 10,
+    "seconds": 263.1,
+    "two_qubit": 15352,
+    "depth_2q": 739,
+    "duration_ns": 77036.0,
+    "damage": 68.1099873955326,
+    "damage_s": 55.75979932761135,
+    "v3_cost": 7.929720331238424,
+    "status": "proven",
+    "verify": "qcec equivalent_up_to_global_phase"
+   },
+   {
+    "compiler": "ours s0",
+    "seconds": 915.1,
+    "two_qubit": 15745,
+    "depth_2q": 714,
+    "duration_ns": 75316.0,
+    "damage": 74.39400147024392,
+    "damage_s": 57.8439446289174,
+    "v3_cost": 7.943865162886637,
+    "status": "proven",
+    "verify": "qcec equivalent_up_to_global_phase"
+   },
+   {
+    "compiler": "ours s1",
+    "seconds": 881.6,
+    "two_qubit": 15352,
+    "depth_2q": 739,
+    "duration_ns": 77036.0,
+    "damage": 68.1099873955326,
+    "damage_s": 55.75979932761135,
+    "v3_cost": 7.929720331238424,
+    "status": "proven",
+    "verify": "qcec equivalent_up_to_global_phase"
+   },
+   {
+    "compiler": "ours s2",
+    "seconds": 908.5,
+    "two_qubit": 15352,
+    "depth_2q": 739,
+    "duration_ns": 77036.0,
+    "damage": 68.1099873955326,
+    "damage_s": 55.75979932761135,
+    "v3_cost": 7.929720331238424,
+    "status": "proven",
+    "verify": "qcec equivalent_up_to_global_phase"
+   }
+  ]
+ }
+]
