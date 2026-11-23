@@ -48,11 +48,12 @@ Qiskit's compilations almost never gave the right answer, while version 2 did 3�
   similar compilations (adder, Kingston).
 - All eight version-2 circuits that ran passed the random-input correctness check (1.000000); the broken
   controls scored 0.15 to 0.84.
-- Not everywhere: in simulation, version 2 on its own was **worse** than Qiskit on the 120-qubit hadron
-  circuit (14% more two-qubit gates), where the circuit fills most of the chip. It now hands circuits that
-  fill most of the chip to a fallback, which **ties** Qiskit there: 15,352 two-qubit gates each, both proven
-  equivalent to the original. A tie, not a win. Runs 5–8 are unaffected: their circuits use under half
-  the chip.
+- Not everywhere: in simulation, version 2 on its own is **worse** than Qiskit on the 120-qubit hadron
+  circuit (14% more two-qubit gates), where the circuit fills most of the chip. Qiskit's own level-3 output
+  sits in the candidate pool, so on a circuit it cannot improve the compiler returns that output unchanged.
+  That is what happens on hadron: 15,352 two-qubit gates, identical to Qiskit's compilation on every
+  measure. It **matches** Qiskit there by handing back Qiskit's own work, which is a safe fallback and not
+  a result. Runs 5–8 are unaffected: their circuits use under half the chip.
 - Four runs, two circuits, two chips: a small sample, and absolute success rates on today's chips are low.
 
 Runs 1–4 below used the first version.
