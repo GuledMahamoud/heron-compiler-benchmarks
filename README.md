@@ -46,8 +46,8 @@ Qiskit's compilations almost never gave the right answer, while version 2 did 3â
   than two standard errors, while the other 4 are within shot noise (one each in runs 5 and 7, two in run 6).
 - The size of the gain broadly followed the predicted error, but the model could not tell apart two
   similar compilations (adder, Kingston).
-- All eight version-2 circuits that ran passed the random-input correctness check (1.000000); the broken
-  controls scored 0.15 to 0.84.
+- All eight version-2 circuits that ran passed the random-input correctness check (1.000000); on every
+  individual input, the broken controls scored 0.15 to 0.84 (four controls, eight inputs).
 - Not everywhere: in simulation, version 2 on its own is **worse** than Qiskit on the 120-qubit hadron
   circuit (14% more two-qubit gates), where the circuit fills most of the chip. Qiskit's own level-3 output
   sits in the candidate pool, so on a circuit it cannot improve the compiler returns that output unchanged.
@@ -108,8 +108,10 @@ settled result. trotter-3 on hardware was indistinguishable from random for ever
 
 **Correctness.** Every circuit this compiler produced for the eight hardware runs (and Qiskit's for run 4) was
 checked against the original on random input states with a matrix-product-state simulator: all scored 1.000000 (exact match to simulator
-precision). A deliberately broken copy (one two-qubit gate removed) scored far lower (averages 0.10 to 0.73
-over seven tests; individual inputs 0.01 to 0.98), so the check does catch errors. Smaller outputs are proven equivalent with
+precision). A deliberately broken copy (one two-qubit gate removed) scored lower on every individual input:
+0.08 to 0.84 across the six broken controls in these runs (13 inputs; runs 2 and 3 had none), and 0.01 to
+0.98 in a separate 64-qubit check (`results/anderson_kingston`, six inputs). So the check does catch errors.
+Smaller outputs are proven equivalent with
 [MQT QCEC](https://github.com/cda-tum/mqt-qcec).
 
 ## Relative-phase Toffoli pairs
